@@ -1,0 +1,9 @@
+StoreKey,StoreName,City,Region,SalesTerritory
+S01,Delhi Central,Delhi,North,North Hub
+S02,Jaipur City,Jaipur,North,North Hub
+S03,Mumbai West,Mumbai,West,West Hub
+S04,Pune Market,Pune,West,West Hub
+S05,Bengaluru Tech Park,Bengaluru,South,South Hub
+S06,Chennai Marina,Chennai,South,South Hub
+S07,Kolkata East,Kolkata,East,East Hub
+S08,Hyderabad Central,Hyderabad,South,South Hub

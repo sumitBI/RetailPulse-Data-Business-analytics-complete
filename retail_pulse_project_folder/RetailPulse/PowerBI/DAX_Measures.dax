@@ -1,0 +1,157 @@
+-- RetailPulse | Power BI measures
+-- Create a table called _Measures and add these measures one at a time.
+-- Model tables: FactSales, DimDate, DimProduct, DimCustomer, DimStore.
+
+-- SALES AND PROFIT
+
+Total Revenue =
+SUM ( FactSales[NetSales] )
+
+Gross Sales =
+SUM ( FactSales[GrossSales] )
+
+Total Discount =
+SUM ( FactSales[DiscountAmount] )
+
+Total Cost =
+SUM ( FactSales[CostAmount] )
+
+Total Profit =
+SUM ( FactSales[Profit] )
+
+Units Sold =
+SUM ( FactSales[Units] )
+
+-- ORDERS AND CUSTOMERS
+-- OrderID repeats when an order contains more than one product.
+-- DISTINCTCOUNT gives the actual number of orders.
+
+Total Orders =
+DISTINCTCOUNT ( FactSales[OrderID] )
+
+Sales Lines =
+COUNTROWS ( FactSales )
+
+Total Customers =
+DISTINCTCOUNT ( FactSales[CustomerKey] )
+
+Average Order Value =
+DIVIDE ( [Total Revenue], [Total Orders] )
+
+Revenue per Customer =
+DIVIDE ( [Total Revenue], [Total Customers] )
+
+-- PROFIT AND DISCOUNT RATES
+
+Profit Margin % =
+DIVIDE ( [Total Profit], [Total Revenue] )
+
+Discount Rate % =
+DIVIDE ( [Total Discount], [Gross Sales] )
+
+-- TIME COMPARISONS
+-- Mark DimDate as the date table before using these measures.
+
+Revenue Last Year =
+CALCULATE (
+    [Total Revenue],
+    SAMEPERIODLASTYEAR ( DimDate[Date] )
+)
+
+Revenue Change vs Last Year =
+[Total Revenue] - [Revenue Last Year]
+
+Revenue YoY % =
+DIVIDE ( [Revenue Change vs Last Year], [Revenue Last Year] )
+
+Revenue Last Month =
+CALCULATE (
+    [Total Revenue],
+    DATEADD ( DimDate[Date], -1, MONTH )
+)
+
+Revenue MoM % =
+DIVIDE (
+    [Total Revenue] - [Revenue Last Month],
+    [Revenue Last Month]
+)
+
+Revenue YTD =
+TOTALYTD ( [Total Revenue], DimDate[Date] )
+
+Profit YTD =
+TOTALYTD ( [Total Profit], DimDate[Date] )
+
+-- RETURNS, CANCELLATIONS AND DELIVERY
+
+Returned Sales Lines =
+CALCULATE (
+    [Sales Lines],
+    FactSales[IsReturned] = 1
+)
+
+Cancelled Sales Lines =
+CALCULATE (
+    [Sales Lines],
+    FactSales[IsCancelled] = 1
+)
+
+Return Rate % =
+DIVIDE ( [Returned Sales Lines], [Sales Lines] )
+
+Cancellation Rate % =
+DIVIDE ( [Cancelled Sales Lines], [Sales Lines] )
+
+Average Shipping Days =
+CALCULATE (
+    AVERAGE ( FactSales[ShippingDays] ),
+    FactSales[OrderStatus] = "Completed"
+)
+
+Completed Revenue =
+CALCULATE (
+    [Total Revenue],
+    FactSales[OrderStatus] = "Completed"
+)
+
+-- PRODUCT AND CUSTOMER RANKING
+
+Product Sales Rank =
+RANKX (
+    ALL ( DimProduct[ProductName] ),
+    [Total Revenue],
+    ,
+    DESC,
+    DENSE
+)
+
+Customer Sales Rank =
+RANKX (
+    ALL ( DimCustomer[CustomerName] ),
+    [Total Revenue],
+    ,
+    DESC,
+    DENSE
+)
+
+-- LABELS FOR REPORT CARDS
+
+Selected Date Range =
+VAR FirstDate = MIN ( DimDate[Date] )
+VAR LastDate = MAX ( DimDate[Date] )
+RETURN
+    FORMAT ( FirstDate, "dd MMM yyyy" )
+        & " to "
+        & FORMAT ( LastDate, "dd MMM yyyy" )
+
+Revenue Trend Status =
+SWITCH (
+    TRUE (),
+    [Revenue YoY %] > 0.10, "Strong growth",
+    [Revenue YoY %] > 0, "Growing",
+    [Revenue YoY %] = 0, "No change",
+    "Declining"
+)
+
+-- For a Top 10 product chart, add Product Sales Rank to visual filters
+-- and set the condition to is less than or equal to 10.

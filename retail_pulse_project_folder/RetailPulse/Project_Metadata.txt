@@ -1,0 +1,8 @@
+Project: RetailPulse
+Type: Retail business intelligence portfolio project
+Tools: Power BI Desktop, PostgreSQL
+Dataset: Synthetic retail sales data, 2023-2025
+Fact table: FactSales (one row per sales line)
+Dimensions: DimDate, DimProduct, DimCustomer, DimStore
+Report pages: Executive Overview; Product & Discount Analysis; Regional & Customer Analysis; Product Detail
+

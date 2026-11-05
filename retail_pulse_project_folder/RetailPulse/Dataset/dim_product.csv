@@ -1,0 +1,33 @@
+ProductKey,ProductName,Category,ProductTier,ListPrice,UnitCost
+P001,Laptop,Technology,Standard,450.0,299.59
+P002,Laptop Pro,Technology,Premium,697.5,408.27
+P003,Monitor,Technology,Standard,120.0,82.33
+P004,Monitor Pro,Technology,Premium,186.0,120.41
+P005,Keyboard,Technology,Standard,35.0,17.59
+P006,Keyboard Pro,Technology,Premium,54.25,38.74
+P007,Mouse,Technology,Standard,25.0,16.57
+P008,Mouse Pro,Technology,Premium,38.75,25.91
+P009,Headphones,Technology,Standard,60.0,30.64
+P010,Headphones Pro,Technology,Premium,93.0,54.69
+P011,Printer,Technology,Standard,180.0,102.42
+P012,Printer Pro,Technology,Premium,279.0,195.98
+P013,Office Chair,Furniture,Standard,140.0,88.83
+P014,Office Chair Pro,Furniture,Premium,217.0,147.01
+P015,Desk,Furniture,Standard,220.0,129.01
+P016,Desk Pro,Furniture,Premium,341.0,182.28
+P017,Bookshelf,Furniture,Standard,110.0,67.44
+P018,Bookshelf Pro,Furniture,Premium,170.5,84.45
+P019,Filing Cabinet,Furniture,Standard,160.0,108.58
+P020,Filing Cabinet Pro,Furniture,Premium,248.0,156.64
+P021,Table Lamp,Furniture,Standard,35.0,23.17
+P022,Table Lamp Pro,Furniture,Premium,54.25,30.66
+P023,Notebook,Office Supplies,Standard,5.0,3.56
+P024,Notebook Pro,Office Supplies,Premium,7.75,5.38
+P025,Pen Set,Office Supplies,Standard,12.0,8.0
+P026,Pen Set Pro,Office Supplies,Premium,18.6,9.8
+P027,Paper Ream,Office Supplies,Standard,8.0,4.74
+P028,Paper Ream Pro,Office Supplies,Premium,12.4,6.08
+P029,Stapler,Office Supplies,Standard,9.0,4.65
+P030,Stapler Pro,Office Supplies,Premium,13.95,8.98
+P031,Desk Organizer,Office Supplies,Standard,18.0,11.86
+P032,Desk Organizer Pro,Office Supplies,Premium,27.9,19.87

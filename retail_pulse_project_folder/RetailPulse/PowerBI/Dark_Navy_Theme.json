@@ -1,0 +1,72 @@
+{
+  "name": "Retail BI - Dark Navy",
+  "dataColors": [
+    "#36C2CF",
+    "#6C8EFF",
+    "#F6B94A",
+    "#F07878",
+    "#9B8AFB",
+    "#62C79A",
+    "#E58CCB",
+    "#A9B8C9"
+  ],
+  "background": "#0B1220",
+  "foreground": "#F3F6FC",
+  "tableAccent": "#36C2CF",
+  "visualStyles": {
+    "*": {
+      "*": [
+        {
+          "fontFamily": "Segoe UI",
+          "fontSize": 11,
+          "color": {
+            "solid": {
+              "color": "#E8EEF8"
+            }
+          }
+        },
+        {
+          "background": [
+            {
+              "color": {
+                "solid": {
+                  "color": "#111C2E"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "title": [
+            {
+              "show": true,
+              "fontSize": 13,
+              "fontFamily": "Segoe UI Semibold",
+              "color": {
+                "solid": {
+                  "color": "#F3F6FC"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "page": {
+      "*": [
+        {
+          "background": [
+            {
+              "color": {
+                "solid": {
+                  "color": "#0B1220"
+                }
+              }
+            }
+          ],
+          "transparency": 0
+        }
+      ]
+    }
+  }
+}
