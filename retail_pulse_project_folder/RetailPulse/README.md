@@ -42,7 +42,11 @@ Screenshots/      Add screenshots of your finished report here
 | Regional & Customer Analysis | Store, region and customer segment performance |
 | Product Detail | Drill-through view for an individual product |
 
-## Important
+
+--BUSINESS RECOMMENDATION --
+◑ Focus on top churn drivers 
+◑ Offers retention plans for  high risk customers
+◑ Track Retention Monthly 
 
 The ZIP contains the source data and build instructions, **not a finished `.pbix` file**. Open Power BI Desktop and save the report yourself as `PowerBI/RetailPulse.pbix` after completing the guide.
 
